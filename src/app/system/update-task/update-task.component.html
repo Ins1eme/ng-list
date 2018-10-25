@@ -1,0 +1,13 @@
+<div class="container">
+  <span class="title">Edit Task</span>
+  <form class="form" [formGroup] = 'form' (ngSubmit) = "onSubmit()">
+    <mat-form-field class="email-field form__field" dividerColor="primary">
+      <input matInput placeholder="Task name" [formControlName] = "'name'">
+    </mat-form-field>
+    <mat-form-field class="password-field form__field">
+      <input matInput placeholder="Description" type="text" [formControlName] = "'descr'">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="form__create-task" >Edit task</button>
+    <a class="form__cancel" (click) = "closePopup()">Cancel</a>
+  </form>
+</div>

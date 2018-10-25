@@ -1,0 +1,22 @@
+<div class="container">
+    <i class="material-icons lock-icon"> lock_open </i>
+    <div class="social">
+        <div class="social-item">
+            <img src="../../../assets/images/mail.png" alt="email" class="social__icon--email">
+            <button mat-raised-button color="primary" class="sign_in" [routerLink] = "'/login-email'">Login with Email</button>
+        </div>
+        <div class="social-item">
+            <img src="../../../assets/images/google.png" alt="google" class="social__icon--google">
+            <button mat-raised-button color="warn" class="sign_in" (click) = "authWithGoogle()">Login with Google</button>
+        </div>
+        <div class="social-item">
+            <img src="../../../assets/images/github.png" alt="google" class="social__icon--github">
+            <button mat-raised-button color="warn" class="github_login" (click) = "authWithGithub()">Login with GitHub</button>
+        </div>
+
+        <a class="create-account" [routerLink]="'/registration'">
+            <span class="create-account__link"> No account? </span>
+            Create one here 
+        </a>
+    </div>
+</div>

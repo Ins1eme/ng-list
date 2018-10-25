@@ -1,0 +1,62 @@
+.title {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+.title__name {
+    font-size: 34px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.container {
+    padding-top: 40px;
+    width: 80%;
+    margin: auto;
+}
+.mat-form-field {
+    margin-left: auto;
+    padding-bottom: 0;
+    margin-right: 20px;
+}
+.mat-list-item{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 30px;
+}
+.mat-list-item :last-child {
+    margin-bottom: 0;
+}
+table {
+    width: 100%;
+    text-align: left;
+}
+table /deep/ .mat-header-cell {
+    width: 20%;
+}
+th.mat-sort-header-sorted {
+    color: black;
+}
+table /deep/ .mat-row {
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+table /deep/ .mat-row:hover {
+    background: #dcd7d7;
+}
+table /deep/  tr {
+    
+}
+table /deep/  tr.is-complete  {
+    transition: all .5s ease;
+    background-color: #28a745;
+}
+table /deep/  tr.is-complete:hover {
+    background-color: #28a745;
+}
+.material-icons {
+    margin-right: 2px;
+    cursor: pointer;
+}
+.material-icons :last-child {
+    margin-right: 0;
+}

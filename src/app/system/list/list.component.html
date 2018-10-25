@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="title">
+        <span class="title__name">
+            Task manager
+        </span>
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" [(ngModel)] = 'search'  #inputSearch>
+        </mat-form-field>
+        <button mat-raised-button (click)="openDialogCreateTask()">Create New</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef> # </th>
+            <td mat-cell *matCellDef="let element;let i = index"> {{i + 1}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"  [title]='element.name' slice > {{element.name}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="descr">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td mat-cell *matCellDef="let element" [title]='element.descr'  slice > {{element.descr}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.date | date }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef > Actions </th>
+            <td mat-cell *matCellDef="let element"> 
+                <i class="material-icons" (click) = "openDialogEditTask($event,element)"> assignment </i>
+                <i class="material-icons delete-icon"  (click) = "deleteTask($event,element.id)"> delete </i> 
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row [ngClass]="{'is-complete': row.complete}" (click) = "changeTaskState(row)" *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+    
+      
+</div>

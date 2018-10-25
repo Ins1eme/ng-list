@@ -1,0 +1,20 @@
+<div class="container">
+  <form class="form" [formGroup] = 'form' (ngSubmit) = "onSubmit()">
+    <mat-form-field class="email-field" dividerColor="primary">
+      <input matInput placeholder="Email" [formControlName] = "'email'">
+      <mat-error *ngIf="form.controls.email.hasError('email') || form.controls.email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="password-field">
+      <input matInput placeholder="Password" type="password" [formControlName] = "'password'">
+      <mat-error *ngIf="form.controls.password.hasError('required') || form.controls.password.hasError('minlength') ">
+        Please enter a valid password
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled] = "form.invalid" color="primary" type="submit" class="log_in">Log in</button>
+    <div *ngIf = "message" class="message" [ngClass]="message.type"  >{{message.text}}</div>
+    <a [routerLink] ="'/registration'" class="navigator"> Dont have account? Create one here...</a>
+  </form>
+</div>
